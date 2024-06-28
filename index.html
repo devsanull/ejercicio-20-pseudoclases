@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio clase 20 - Pseudoclases estandar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Ejercicio clase 20 DWFSH1-108 - Pseudoclases CSS</h1>
+    </header>
+    <section>
+        <div class="definicion">
+            <ul>
+                <li><strong>Definición: </strong>Una pseudoclase CSS es una palabra clave que se añade a los selectores 
+                    y que especifica un estado especial del elemento seleccionado.</li>
+                <li>Seleccionamos 10 pseudoclases aparte de las vistas en clase como: 
+                    ":link, :visited, :hover, :active, :nth_child()."</li>
+            </ul>
+        </div>
+        <!-- Lista de pseudoclases -->
+        <div class="lista">
+            <!-- Lista ordenada de anclas -->
+            <ol>
+                <!-- 1 - :checked -->
+                <li class="style-listas"><a href="#checked">:checked</a></li>
+                <!-- 2 - :default -->
+                <li class="style-listas"><a href="#default">:default</a></li>
+                <!-- 3 - :dir()-->
+                <li class="style-listas"><a href="#dir">:dir()</a></li>
+                <!-- 4 - :focus-->
+                <li class="style-listas"><a href="#autofill">:autofill</a></li>
+                <!-- 5 - :empty-->
+                <li class="style-listas"><a href="#empty">:empty</a></li>
+                <!-- 6 - :enabled -->
+                <li class="style-listas"><a href="#enabled">:enabled</a></li>
+                <!-- 7 - :first-->
+                <li class="style-listas"><a href="#root">:root</a></li>
+                <!-- 8 - :first-child -->
+                <li class="style-listas"><a href="#any-link">:any-link</a></li>
+                <!-- 9 - :first-of-type -->
+                <li class="style-listas"><a href="#placeholder-shown">:placeholder-shown</a></li>
+            </ol>
+        </div>
+    </section>
+    <section>
+        <div class="anclas">
+            <ol>
+                <!-- 1 - :checked -->
+                <li class="style-titulos" id="checked">:checked</li>
+                <p>Representa cualquier elemento de selección dentro de un formulario o página web.<br><br></p>
+                <div class="checked">
+                    <!-- Opción si -->
+                    <input type="radio" name="my-input" id="si" />
+                    <label for="si">Si</label>
+                    <!-- Opción no -->
+                    <input type="radio" name="my-input" id="no" />
+                    <label for="no">No<br><br></label>
+                </div>
+                  
+                <div>
+                    <input type="checkbox" name="my-checkbox" id="opt-in" />
+                    <label for="opt-in">Cedula de ciudadanía<br><br></label>
+                </div>
+                  
+                <select name="my-select" id="fruta">
+                    <option value="opt1">Manzanas</option>
+                    <option value="opt2">Uvas</option>
+                    <option value="opt3">Peras</option>
+                </select>                  
+                <br><br>
+                <!-- 2 - :default -->
+                <li class="style-titulos" id="default">:default</li>
+                <p>Representa cualquier elemento de formulario que sea el predeterminado entre un grupo de elementos relacionados.</p>
+                <input type="radio" name="season" id="visual" />
+                <label for="visual">Visual Studio Code</label>
+
+                <input type="radio" name="season" id="sublime" checked />
+                <label for="sublime">Sublime Text</label>
+                <br><br>
+                <!-- 3 - :dir()-->
+                <li class="style-titulos" id="dir">:dir()</li>
+                <p>La pseudoclase :dir de CSS coincide con los elementos en función de la direccionalidad del texto contenido en ellos.</p>
+                <p>Usa solo el valor semántico de la direccionalidad, es decir, el definido en el documento mismo. No tiene en cuenta la 
+                    direccionalidad del estilo, es decir, la direccionalidad establecida por las propiedades de CSS como direction.<br><br></p>
+                <div dir="rtl">
+                    <span>Texto 1</span>
+                    <div dir="ltr">
+                      Texto 2
+                        <div dir="rtl">Texto 3</div>
+                    </div>
+                </div>
+                <br>
+                <!-- 4 - :autofill-->
+                <li class="style-titulos" id="autofill">:autofill</li>
+                <p>La pseudoclase CSS coincide cuando un elemento input tiene su valor autocompletado por el navegador. 
+                    La clase deja de coincidir si el usuario edita el campo.<br><br></p>
+                <form method="post" action="">
+                    <label for="email">Correo: </label>
+                    <input type="email" name="email" id="email" autocomplete="email" />
+                </form>
+                <br>
+                <!-- 5 - :empty-->
+                <li class="style-titulos" id="empty">:empty</li>
+                <p>Representa cualquier elemento que no tenga hijos. Los hijos pueden ser nodos de elemento o texto (incluido el espacio en blanco). 
+                    Los comentarios o las instrucciones de procesamiento no afectan si un elemento se considera vacío. <br><br></p>
+                <div class="bigbox">
+                    <div class="box"><!-- Voy a ser de color lima. --></div>
+                    <div class="box">Voy a ser de color rosa.</div>
+                    <div class="box">
+                    <!-- Seré de color rosa debido a los espacios en blanco alrededor de este comentario. -->
+                    </div>
+                </div>
+                <br>
+                <!-- 6 - :enabled -->
+                <li class="style-titulos" id="enabled">:enabled</li>
+                <p>Representa cualquier elemento habilitado. Un elemento está habilitado si puede ser activado 
+                    (es decir seleccionado, se puede hacer click en él, acepta que se le introduzca texto, etc.) 
+                    o si accepta el foco. El elemento también tiene un estado deshabilitado el en cuál, no puede ser activado ni acepta el foco. <br><br></p>
+                <form action="url_of_form">
+                    <label for="FirstField">Primer campo (habilitado):</label>
+                    <input type="text" id="FirstField" value="Lorem" /><br />
+                    
+                    <label for="SecondField">Segundo campo (deshabilitado):</label>
+                    <input type="text" id="SecondField" value="Ipsum" disabled="disabled" /><br />
+                    
+                    <input type="button" value="Enviar" />
+                </form>
+                <br>
+                <!-- 7 - :root-->
+                <li class="style-titulos" id="root">:root</li>
+                <p>La pseudoclase selecciona el elemento raíz de un árbol que representa el documento. En HTML, :root representa el elemento html 
+                    y es idéntico al selector html, excepto que su especificidad es mayor.<br></p>
+                <p>:root puede ser util para declarar variables CSS globales. <br></p>
+                <!-- 8 - :first-child -->
+                <li class="style-titulos" id="any-link">:any-link</li>
+                <p>La pseudo-clase :any-link de CSS representa a un elemento que actúa como el ancla origen de un hipervínculo independientemente 
+                    de si ha sido visitado, es decir, coincide con cualquier elemento a, area o link con un atributo href. Por lo tanto, coincide 
+                        con todos los elementos que coincidan con :link o :visited. <br><br></p>
+                <a href="https://github.com/devsanull" class="prueba">Enlace externo</a><br />
+                <a href="#enlace-prueba" class="prueba">Enlace de destino interno</a><br />
+                <a class="prueba">Enlace de marcador de posición (no se personalizará)</a>
+                <p id="enlace-prueba">Lorem ipsum dolor </p>
+                <br>
+                <!-- 9 - :first-of-type -->
+                <li class="style-titulos" id="placeholder-shown">:placeholder-shown</li>
+                <p>La pseudo-clase :placeholder-shown de CSS representa cualquier 
+                elemento input o textarea que esté mostrando actualmente el texto de marcador de posición placeholder.<br></p>
+                <input placeholder="¡Escribe algo aquí!" id="prueba" />
+                <br><br>
+            </ol>
+        </div>
+    </section>
+</body>
+</html>
